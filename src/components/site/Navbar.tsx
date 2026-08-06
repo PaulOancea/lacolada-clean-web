@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const links = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Prices", href: "#prices" },
-  { label: "Location", href: "#location" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLang } from "@/lib/i18n";
+import { LanguageSelector } from "./LanguageSelector";
 
 export const DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=Calle+Santa+Amalia+15%2C+44003+Teruel%2C+Spain";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { t } = useLang();
+  const links = [
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.prices, href: "#prices" },
+    { label: t.nav.location, href: "#location" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -45,13 +48,14 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <LanguageSelector className="hidden sm:inline-flex" />
           <a
             href={DIRECTIONS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-accent-foreground sm:inline-flex"
           >
-            Get Directions
+            {t.directions}
           </a>
           <button
             type="button"
@@ -78,13 +82,14 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
+            <LanguageSelector className="mt-3 w-full sm:hidden [&>select]:w-full" />
             <a
               href={DIRECTIONS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 mb-3 rounded-md bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
             >
-              Get Directions
+              {t.directions}
             </a>
           </div>
         </nav>

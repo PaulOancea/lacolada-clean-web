@@ -3,12 +3,13 @@ import { Check, Clock, MapPin, Star } from "lucide-react";
 
 import { DIRECTIONS_URL, Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { LangProvider, useLang } from "@/lib/i18n";
 import heroImage from "@/assets/hero-laundromat.jpg";
 import towelsImage from "@/assets/folded-towels.jpg";
 
-const TITLE = "Lavandería LaColada Teruel — Self-Service Laundry";
+const TITLE = "Lavandería LaColada Teruel — Lavandería autoservicio";
 const DESCRIPTION =
-  "Self-service laundry in Teruel: modern washers and dryers, detergent and softener included, 30-minute cycles. Open every day 8:00–22:00, Calle Santa Amalia 15.";
+  "Lavandería autoservicio en Teruel: lavadoras y secadoras modernas, detergente y suavizante incluidos, ciclos de 30 minutos. Abierto todos los días 8:00–22:00, Calle Santa Amalia 15.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,38 +22,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const services = [
-  {
-    title: "Express Washing",
-    text: "Modern washing machines with fast 30-minute cycles.",
-  },
-  {
-    title: "Large Capacity Machines",
-    text: "Perfect for blankets, duvets and family loads.",
-  },
-  {
-    title: "Dryers",
-    text: "Powerful dryers that leave clothes ready to wear.",
-  },
-  {
-    title: "Eco-Friendly Products",
-    text: "Detergent and softener included with every wash.",
-  },
-];
-
-const reasons = [
-  "Open every day",
-  "Modern machines",
-  "Eco-friendly detergents",
-  "Quick wash cycles",
-];
-
-const reviews = [
-  { quote: "Excellent service, good machines and the best prices.", author: "Paul" },
-  { quote: "Detergent is included and the machines are easy to use.", author: "Nejc" },
-  { quote: "Very clean laundry and reliable machines.", author: "Customer" },
-];
 
 function SectionTitle({ children, kicker }: { children: string; kicker?: string }) {
   return (
@@ -67,6 +36,16 @@ function SectionTitle({ children, kicker }: { children: string; kicker?: string 
 
 function Index() {
   return (
+    <LangProvider>
+      <Page />
+    </LangProvider>
+  );
+}
+
+function Page() {
+  const { t } = useLang();
+
+  return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -75,7 +54,7 @@ function Index() {
         <section id="home" className="relative isolate overflow-hidden bg-card">
           <img
             src={heroImage}
-            alt="Interior of a bright self-service laundromat with a row of washing machines"
+            alt={t.hero.imageAlt}
             width={1920}
             height={1088}
             className="absolute inset-0 h-full w-full object-cover"
@@ -84,11 +63,10 @@ function Index() {
           <div className="container-site relative py-24 sm:py-32">
             <div className="fade-in-up max-w-2xl">
               <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-primary-foreground sm:text-5xl">
-                Clean Clothes. Fast. Easy. Every Day.
+                {t.hero.title}
               </h1>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
-                Self-service laundry in Teruel with modern machines, eco-friendly detergents included,
-                and quick washing cycles.
+                {t.hero.subtitle}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -97,18 +75,18 @@ function Index() {
                   rel="noopener noreferrer"
                   className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary"
                 >
-                  Get Directions
+                  {t.directions}
                 </a>
                 <a
                   href="#prices"
                   className="rounded-md border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
                 >
-                  View Prices
+                  {t.hero.viewPrices}
                 </a>
               </div>
               <p className="mt-8 flex items-center gap-2 text-sm text-primary-foreground/80">
                 <Clock className="h-4 w-4" aria-hidden="true" />
-                Open every day, 8:00 – 22:00
+                {t.hero.hours}
               </p>
             </div>
           </div>
@@ -118,19 +96,13 @@ function Index() {
         <section id="about" className="py-16 sm:py-24">
           <div className="container-site grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <SectionTitle kicker="About us">Your Local Self-Service Laundry</SectionTitle>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Lavandería LaColada Teruel offers a quick and convenient laundry experience with modern
-                washing and drying machines. Detergent and fabric softener are included, making every
-                wash simple and hassle-free.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Open every day with easy-to-use machines designed for both locals and travelers.
-              </p>
+              <SectionTitle kicker={t.about.kicker}>{t.about.title}</SectionTitle>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">{t.about.p1}</p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.about.p2}</p>
             </div>
             <img
               src={towelsImage}
-              alt="Freshly washed white and blue towels folded in a laundry room"
+              alt={t.about.imageAlt}
               width={1200}
               height={912}
               loading="lazy"
@@ -142,9 +114,9 @@ function Index() {
         {/* Services */}
         <section id="services" className="border-y border-border bg-card py-16 sm:py-24">
           <div className="container-site">
-            <SectionTitle kicker="Services">What you can do here</SectionTitle>
+            <SectionTitle kicker={t.services.kicker}>{t.services.title}</SectionTitle>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map((s) => (
+              {t.services.items.map((s) => (
                 <article
                   key={s.title}
                   className="rounded-md border border-border bg-background p-6 transition-shadow hover:shadow-card"
@@ -160,41 +132,39 @@ function Index() {
         {/* Prices */}
         <section id="prices" className="py-16 sm:py-24">
           <div className="container-site">
-            <SectionTitle kicker="Prices">Simple, transparent pricing</SectionTitle>
+            <SectionTitle kicker={t.prices.kicker}>{t.prices.title}</SectionTitle>
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               <div className="rounded-md border border-border bg-card p-6 shadow-card">
-                <h3 className="text-lg font-bold text-foreground">Washing</h3>
+                <h3 className="text-lg font-bold text-foreground">{t.prices.washing}</h3>
                 <dl className="mt-4 divide-y divide-border">
                   <div className="flex items-baseline justify-between py-3">
-                    <dt className="text-sm text-muted-foreground">12 kg</dt>
+                    <dt className="text-sm text-muted-foreground">{t.prices.kg12}</dt>
                     <dd className="text-base font-semibold text-foreground">€5</dd>
                   </div>
                   <div className="flex items-baseline justify-between py-3">
-                    <dt className="text-sm text-muted-foreground">16 kg</dt>
+                    <dt className="text-sm text-muted-foreground">{t.prices.kg16}</dt>
                     <dd className="text-base font-semibold text-foreground">€7</dd>
                   </div>
                 </dl>
               </div>
               <div className="rounded-md border border-border bg-card p-6 shadow-card">
-                <h3 className="text-lg font-bold text-foreground">Drying</h3>
+                <h3 className="text-lg font-bold text-foreground">{t.prices.drying}</h3>
                 <dl className="mt-4 divide-y divide-border">
                   <div className="flex items-baseline justify-between py-3">
-                    <dt className="text-sm text-muted-foreground">18 kg dryer</dt>
-                    <dd className="text-base font-semibold text-foreground">from €3</dd>
+                    <dt className="text-sm text-muted-foreground">{t.prices.dryer}</dt>
+                    <dd className="text-base font-semibold text-foreground">{t.prices.from}</dd>
                   </div>
                 </dl>
               </div>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Detergent and fabric softener are included.
-            </p>
+            <p className="mt-6 text-sm text-muted-foreground">{t.prices.note}</p>
           </div>
         </section>
 
         {/* Why choose us */}
         <section className="border-y border-border bg-card py-14">
           <div className="container-site grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {reasons.map((r) => (
+            {t.reasons.map((r) => (
               <div key={r} className="flex items-start gap-3">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 <p className="text-sm font-medium text-foreground">{r}</p>
@@ -206,11 +176,11 @@ function Index() {
         {/* Reviews */}
         <section className="py-16 sm:py-24">
           <div className="container-site">
-            <SectionTitle kicker="Reviews">What our customers say</SectionTitle>
+            <SectionTitle kicker={t.reviews.kicker}>{t.reviews.title}</SectionTitle>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {reviews.map((r) => (
+              {t.reviews.items.map((r) => (
                 <figure key={r.author} className="rounded-md border border-border bg-card p-6">
-                  <div className="flex gap-0.5" aria-label="Rated 5 out of 5">
+                  <div className="flex gap-0.5" aria-label={t.reviews.rating}>
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-secondary text-secondary" aria-hidden="true" />
                     ))}
@@ -231,13 +201,13 @@ function Index() {
         <section id="location" className="border-y border-border bg-card py-16 sm:py-24">
           <div className="container-site grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <SectionTitle kicker="Location">Find Us</SectionTitle>
+              <SectionTitle kicker={t.location.kicker}>{t.location.title}</SectionTitle>
               <address className="mt-5 not-italic text-base leading-relaxed text-muted-foreground">
                 Calle Santa Amalia 15
                 <br />
                 44003 Teruel
                 <br />
-                Spain
+                España
               </address>
               <a
                 href={DIRECTIONS_URL}
@@ -246,12 +216,12 @@ function Index() {
                 className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary"
               >
                 <MapPin className="h-4 w-4" aria-hidden="true" />
-                Get Directions
+                {t.directions}
               </a>
             </div>
             <div className="overflow-hidden rounded-md border border-border bg-background shadow-card">
               <iframe
-                title="Map showing Lavandería LaColada Teruel at Calle Santa Amalia 15"
+                title={t.location.mapTitle}
                 src="https://www.google.com/maps?q=Calle+Santa+Amalia+15,+44003+Teruel,+Spain&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -264,24 +234,22 @@ function Index() {
         {/* Contact */}
         <section id="contact" className="py-16 sm:py-24">
           <div className="container-site">
-            <SectionTitle kicker="Contact">Opening hours &amp; address</SectionTitle>
+            <SectionTitle kicker={t.contact.kicker}>{t.contact.title}</SectionTitle>
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               <div className="rounded-md border border-border bg-card p-6">
-                <h3 className="text-base font-bold text-foreground">Opening Hours</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Open every day
-                  <br />
-                  8:00 – 22:00
+                <h3 className="text-base font-bold text-foreground">{t.contact.hoursTitle}</h3>
+                <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+                  {t.contact.hoursValue}
                 </p>
               </div>
               <div className="rounded-md border border-border bg-card p-6">
-                <h3 className="text-base font-bold text-foreground">Address</h3>
+                <h3 className="text-base font-bold text-foreground">{t.contact.addressTitle}</h3>
                 <address className="mt-3 not-italic text-sm leading-relaxed text-muted-foreground">
                   Calle Santa Amalia 15
                   <br />
                   44003 Teruel
                   <br />
-                  Spain
+                  España
                 </address>
               </div>
             </div>
