@@ -16,7 +16,14 @@ export const languages: { code: Lang; label: string; short: string }[] = [
 ];
 
 type Copy = {
-  nav: { home: string; services: string; prices: string; location: string; contact: string };
+  nav: {
+    home: string;
+    services: string;
+    prices: string;
+    media: string;
+    location: string;
+    contact: string;
+  };
   directions: string;
   hero: { title: string; subtitle: string; viewPrices: string; hours: string; imageAlt: string };
   about: { kicker: string; title: string; p1: string; p2: string; imageAlt: string };
@@ -36,6 +43,7 @@ type Copy = {
     from: string;
     note: string;
   };
+  media: { kicker: string; title: string; subtitle: string; captions: string[] };
   reasons: string[];
   reviews: { kicker: string; title: string; items: { quote: string; author: string }[]; rating: string };
   location: { kicker: string; title: string; mapTitle: string };
@@ -53,6 +61,7 @@ export const copy: Record<Lang, Copy> = {
       services: "Servicios",
       prices: "Precios",
       location: "Ubicación",
+      media: "Galería",
       contact: "Contacto",
     },
     directions: "Cómo llegar",
@@ -93,6 +102,19 @@ export const copy: Record<Lang, Copy> = {
       from: "desde 3 €",
       note: "El detergente y el suavizante están incluidos.",
     },
+    media: {
+      kicker: "Galería",
+      title: "Conoce nuestra lavandería",
+      subtitle: "Fotos y vídeo reales de nuestro local en Calle Santa Amalia 15, Teruel.",
+      captions: [
+        "Fachada de LaColada en Calle Santa Amalia 15",
+        "Lavadoras de 12 kg y 16 kg",
+        "Sala principal con mesas para doblar",
+        "Secadoras de 18 kg",
+        "Zona de espera con asientos",
+        "Local amplio y luminoso",
+      ],
+    },
     reasons: [
       "Abierto todos los días",
       "Máquinas modernas",
@@ -128,7 +150,14 @@ export const copy: Record<Lang, Copy> = {
     langLabel: "Idioma",
   },
   en: {
-    nav: { home: "Home", services: "Services", prices: "Prices", location: "Location", contact: "Contact" },
+    nav: {
+      home: "Home",
+      services: "Services",
+      prices: "Prices",
+      media: "Gallery",
+      location: "Location",
+      contact: "Contact",
+    },
     directions: "Get Directions",
     hero: {
       title: "Clean Clothes. Fast. Easy. Every Day.",
@@ -166,6 +195,19 @@ export const copy: Record<Lang, Copy> = {
       from: "from €3",
       note: "Detergent and fabric softener are included.",
     },
+    media: {
+      kicker: "Gallery",
+      title: "Take a look inside",
+      subtitle: "Real photos and video of our laundromat at Calle Santa Amalia 15, Teruel.",
+      captions: [
+        "LaColada storefront on Calle Santa Amalia 15",
+        "12 kg and 16 kg washing machines",
+        "Main room with folding tables",
+        "18 kg dryers",
+        "Waiting area with seating",
+        "Bright, spacious interior",
+      ],
+    },
     reasons: ["Open every day", "Modern machines", "Eco-friendly detergents", "Quick wash cycles"],
     reviews: {
       kicker: "Reviews",
@@ -196,7 +238,14 @@ export const copy: Record<Lang, Copy> = {
     langLabel: "Language",
   },
   ro: {
-    nav: { home: "Acasă", services: "Servicii", prices: "Prețuri", location: "Locație", contact: "Contact" },
+    nav: {
+      home: "Acasă",
+      services: "Servicii",
+      prices: "Prețuri",
+      media: "Galerie",
+      location: "Locație",
+      contact: "Contact",
+    },
     directions: "Vezi traseul",
     hero: {
       title: "Haine curate. Rapid. Simplu. În fiecare zi.",
@@ -233,6 +282,19 @@ export const copy: Record<Lang, Copy> = {
       dryer: "Uscător 18 kg",
       from: "de la 3 €",
       note: "Detergentul și balsamul de rufe sunt incluse.",
+    },
+    media: {
+      kicker: "Galerie",
+      title: "Vezi cum arată spălătoria",
+      subtitle: "Fotografii și video reale din locația noastră, Calle Santa Amalia 15, Teruel.",
+      captions: [
+        "Fațada LaColada pe Calle Santa Amalia 15",
+        "Mașini de spălat de 12 kg și 16 kg",
+        "Sala principală cu mese pentru împachetat",
+        "Uscătoare de 18 kg",
+        "Zonă de așteptare cu scaune",
+        "Spațiu luminos și generos",
+      ],
     },
     reasons: [
       "Deschis în fiecare zi",
