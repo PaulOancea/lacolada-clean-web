@@ -4,8 +4,15 @@ import { Check, Clock, MapPin, Star } from "lucide-react";
 import { DIRECTIONS_URL, Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { LangProvider, useLang } from "@/lib/i18n";
-import heroImage from "@/assets/hero-laundromat.jpg";
-import towelsImage from "@/assets/folded-towels.jpg";
+import heroAsset from "@/assets/interior-3.jpg.asset.json";
+import storefrontAsset from "@/assets/storefront.jpg.asset.json";
+import interior1Asset from "@/assets/interior-1.jpg.asset.json";
+import interior2Asset from "@/assets/interior-2.jpg.asset.json";
+import interior4Asset from "@/assets/interior-4.jpg.asset.json";
+import waitingAsset from "@/assets/waiting-area.jpg.asset.json";
+import loungeAsset from "@/assets/lounge.jpg.asset.json";
+import clipAsset from "@/assets/lacolada-clip.mp4.asset.json";
+import posterAsset from "@/assets/poster.jpg.asset.json";
 
 const TITLE = "Lavandería LaColada Teruel — Lavandería autoservicio";
 const DESCRIPTION =
@@ -53,7 +60,7 @@ function Page() {
         {/* Hero */}
         <section id="home" className="relative isolate overflow-hidden bg-card">
           <img
-            src={heroImage}
+            src={heroAsset.url}
             alt={t.hero.imageAlt}
             width={1920}
             height={1088}
@@ -158,6 +165,54 @@ function Page() {
               </div>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">{t.prices.note}</p>
+          </div>
+        </section>
+
+
+        {/* Media / Gallery */}
+        <section id="media" className="py-16 sm:py-24">
+          <div className="container-site">
+            <SectionTitle kicker={t.media.kicker}>{t.media.title}</SectionTitle>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              {t.media.subtitle}
+            </p>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                storefrontAsset.url,
+                interior1Asset.url,
+                interior2Asset.url,
+                interior4Asset.url,
+                waitingAsset.url,
+                loungeAsset.url,
+              ].map((url, i) => (
+                <figure
+                  key={url}
+                  className="overflow-hidden rounded-md border border-border bg-card shadow-card"
+                >
+                  <img
+                    src={url}
+                    alt={t.media.captions[i]}
+                    loading="lazy"
+                    className="h-56 w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-sm text-muted-foreground">
+                    {t.media.captions[i]}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="mt-8 overflow-hidden rounded-md border border-border bg-card shadow-card">
+              <video
+                src={clipAsset.url}
+                poster={posterAsset.url}
+                controls
+                playsInline
+                preload="metadata"
+                className="h-auto w-full"
+              />
+            </div>
           </div>
         </section>
 
