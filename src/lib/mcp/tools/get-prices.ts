@@ -13,6 +13,7 @@ export default defineTool({
       .optional()
       .describe("Which price list to return. Defaults to all."),
   },
+  outputSchema: { prices: z.record(z.string(), z.unknown()) },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ category = "all" }) => {
     const result =

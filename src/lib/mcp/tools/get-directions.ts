@@ -10,6 +10,7 @@ export default defineTool({
   inputSchema: {
     origin: z.string().optional().describe("Optional starting address or place name."),
   },
+  outputSchema: { address: z.string(), hours: z.string(), directionsUrl: z.string() },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: true },
   handler: ({ origin }) => {
     const url = origin

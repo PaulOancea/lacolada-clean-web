@@ -1,4 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
+import { z } from "zod";
 import { business } from "../business";
 
 export default defineTool({
@@ -7,6 +8,7 @@ export default defineTool({
   description:
     "Get public details about Lavandería LaColada Teruel: address, opening hours, languages and directions link.",
   inputSchema: {},
+  outputSchema: { business: z.record(z.string(), z.unknown()) },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
     content: [{ type: "text", text: JSON.stringify(business, null, 2) }],
