@@ -186,6 +186,21 @@ function Page() {
 
             <Carousel opts={{ loop: true }} className="mt-10">
               <CarouselContent>
+                <CarouselItem className="sm:basis-1/2 lg:basis-1/3">
+                  <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
+                    <video
+                      src={clipAsset.url}
+                      poster={posterAsset.url}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="h-56 w-full bg-foreground object-cover"
+                    />
+                    <figcaption className="px-4 py-3 text-sm text-muted-foreground">
+                      {t.media.title}
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
                 {[
                   storefrontAsset.url,
                   interior1Asset.url,
@@ -213,16 +228,6 @@ function Page() {
               <CarouselNext className="right-2" />
             </Carousel>
 
-            <div className="mt-8 overflow-hidden rounded-md border border-border bg-card shadow-card">
-              <video
-                src={clipAsset.url}
-                poster={posterAsset.url}
-                controls
-                playsInline
-                preload="metadata"
-                className="h-auto w-full"
-              />
-            </div>
           </div>
         </section>
 
