@@ -3,6 +3,13 @@ import { Check, Clock, MapPin, Star } from "lucide-react";
 
 import { DIRECTIONS_URL, Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { LangProvider, useLang } from "@/lib/i18n";
 import heroAsset from "@/assets/interior-3.jpg.asset.json";
 import storefrontAsset from "@/assets/storefront.jpg.asset.json";
@@ -177,31 +184,34 @@ function Page() {
               {t.media.subtitle}
             </p>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                storefrontAsset.url,
-                interior1Asset.url,
-                interior2Asset.url,
-                interior4Asset.url,
-                waitingAsset.url,
-                loungeAsset.url,
-              ].map((url, i) => (
-                <figure
-                  key={url}
-                  className="overflow-hidden rounded-md border border-border bg-card shadow-card"
-                >
-                  <img
-                    src={url}
-                    alt={t.media.captions[i]}
-                    loading="lazy"
-                    className="h-56 w-full object-cover"
-                  />
-                  <figcaption className="px-4 py-3 text-sm text-muted-foreground">
-                    {t.media.captions[i]}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <Carousel opts={{ loop: true }} className="mt-10">
+              <CarouselContent>
+                {[
+                  storefrontAsset.url,
+                  interior1Asset.url,
+                  interior2Asset.url,
+                  interior4Asset.url,
+                  waitingAsset.url,
+                  loungeAsset.url,
+                ].map((url, i) => (
+                  <CarouselItem key={url} className="sm:basis-1/2 lg:basis-1/3">
+                    <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
+                      <img
+                        src={url}
+                        alt={t.media.captions[i]}
+                        loading="lazy"
+                        className="h-56 w-full object-cover"
+                      />
+                      <figcaption className="px-4 py-3 text-sm text-muted-foreground">
+                        {t.media.captions[i]}
+                      </figcaption>
+                    </figure>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
 
             <div className="mt-8 overflow-hidden rounded-md border border-border bg-card shadow-card">
               <video
