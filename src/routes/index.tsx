@@ -108,7 +108,7 @@ function Page() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.about.p2}</p>
             </div>
             <img
-              src={towelsImage}
+              src={interior1Asset.url}
               alt={t.about.imageAlt}
               width={1200}
               height={912}
