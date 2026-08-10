@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "lacolada-local",
+      "version": "0.1.0",
+      "title": "LaColada Local"
+    },
+    "tools": [
+      {
+        "name": "get_business_info",
+        "title": "Get business info",
+        "description": "Get public details about Lavandería LaColada Teruel: address, opening hours, languages and directions link.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "business": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "business"
+          ]
+        }
+      },
+      {
+        "name": "list_services",
+        "title": "List services",
+        "description": "List the self-service laundry services available at LaColada Teruel.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description"
+                ]
+              }
+            }
+          },
+          "required": [
+            "services"
+          ]
+        }
+      },
+      {
+        "name": "get_prices",
+        "title": "Get prices",
+        "description": "Get the washing and drying prices at LaColada Teruel. Optionally filter by washing or drying.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Which price list to return. Defaults to all.",
+              "type": "string",
+              "enum": [
+                "all",
+                "washing",
+                "drying"
+              ]
+            }
+          }
+        },
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "prices": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "prices"
+          ]
+        }
+      },
+      {
+        "name": "get_directions",
+        "title": "Get directions",
+        "description": "Get a Google Maps directions link to LaColada Teruel, optionally from a starting address.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "origin": {
+              "description": "Optional starting address or place name.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "hours": {
+              "type": "string"
+            },
+            "directionsUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address",
+            "hours",
+            "directionsUrl"
+          ]
+        }
+      }
+    ]
+  }
+}
