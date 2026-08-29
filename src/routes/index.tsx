@@ -289,14 +289,26 @@ function Page() {
                 {t.directions}
               </a>
             </div>
-            <div className="overflow-hidden rounded-md border border-border bg-background shadow-card">
-              <iframe
-                title={t.location.mapTitle}
-                src="https://www.google.com/maps?q=Calle+Santa+Amalia+15,+44003+Teruel,+Spain&output=embed"
+            <div className="relative overflow-hidden rounded-md border border-border bg-background shadow-card">
+              <img
+                src="/map-teruel.jpg"
+                alt={t.location.mapTitle}
+                width={1200}
+                height={760}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-[320px] w-full border-0 sm:h-[380px]"
+                className="h-[320px] w-full object-cover sm:h-[380px]"
               />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <a
+                  href={DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-card transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  {t.directions}
+                </a>
+              </div>
             </div>
           </div>
         </section>
