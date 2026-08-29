@@ -11,15 +11,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { LangProvider, useLang } from "@/lib/i18n";
-import heroAsset from "@/assets/interior-3.jpg.asset.json";
-import storefrontAsset from "@/assets/storefront.jpg.asset.json";
-import interior1Asset from "@/assets/interior-1.jpg.asset.json";
-import interior2Asset from "@/assets/interior-2.jpg.asset.json";
-import interior4Asset from "@/assets/interior-4.jpg.asset.json";
-import waitingAsset from "@/assets/waiting-area.jpg.asset.json";
-import loungeAsset from "@/assets/lounge.jpg.asset.json";
-import clipAsset from "@/assets/lacolada-clip.mp4.asset.json";
-import posterAsset from "@/assets/poster.jpg.asset.json";
+const heroUrl = "/interior-3.jpg";
+const storefrontUrl = "/storefront.jpg";
+const interior1Url = "/interior-1.jpg";
+const interior2Url = "/interior-2.jpg";
+const interior4Url = "/interior-4.jpg";
+const waitingUrl = "/waiting-area.jpg";
+const loungeUrl = "/lounge.jpg";
+const clipUrl = "/lacolada-clip.mp4";
+const posterUrl = "/poster.jpg";
 
 const TITLE = "Lavandería LaColada Teruel — Lavandería autoservicio";
 const DESCRIPTION =
