@@ -67,7 +67,7 @@ function Page() {
         {/* Hero */}
         <section id="home" className="relative isolate overflow-hidden bg-card">
           <img
-            src={heroAsset.url}
+            src={heroUrl}
             alt={t.hero.imageAlt}
             width={1920}
             height={1088}
@@ -115,7 +115,7 @@ function Page() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.about.p2}</p>
             </div>
             <img
-              src={interior1Asset.url}
+              src={interior1Url}
               alt={t.about.imageAlt}
               width={1200}
               height={912}
@@ -189,8 +189,8 @@ function Page() {
                 <CarouselItem className="sm:basis-1/2 lg:basis-1/3">
                   <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
                     <video
-                      src={clipAsset.url}
-                      poster={posterAsset.url}
+                      src={clipUrl}
+                      poster={posterUrl}
                       controls
                       playsInline
                       preload="metadata"
@@ -202,12 +202,12 @@ function Page() {
                   </figure>
                 </CarouselItem>
                 {[
-                  storefrontAsset.url,
-                  interior1Asset.url,
-                  interior2Asset.url,
-                  interior4Asset.url,
-                  waitingAsset.url,
-                  loungeAsset.url,
+                  storefrontUrl,
+                  interior1Url,
+                  interior2Url,
+                  interior4Url,
+                  waitingUrl,
+                  loungeUrl,
                 ].map((url, i) => (
                   <CarouselItem key={url} className="sm:basis-1/2 lg:basis-1/3">
                     <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
