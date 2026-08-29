@@ -11,15 +11,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { LangProvider, useLang } from "@/lib/i18n";
-import heroAsset from "@/assets/interior-3.jpg.asset.json";
-import storefrontAsset from "@/assets/storefront.jpg.asset.json";
-import interior1Asset from "@/assets/interior-1.jpg.asset.json";
-import interior2Asset from "@/assets/interior-2.jpg.asset.json";
-import interior4Asset from "@/assets/interior-4.jpg.asset.json";
-import waitingAsset from "@/assets/waiting-area.jpg.asset.json";
-import loungeAsset from "@/assets/lounge.jpg.asset.json";
-import clipAsset from "@/assets/lacolada-clip.mp4.asset.json";
-import posterAsset from "@/assets/poster.jpg.asset.json";
+const heroUrl = "/interior-3.jpg";
+const storefrontUrl = "/storefront.jpg";
+const interior1Url = "/interior-1.jpg";
+const interior2Url = "/interior-2.jpg";
+const interior4Url = "/interior-4.jpg";
+const waitingUrl = "/waiting-area.jpg";
+const loungeUrl = "/lounge.jpg";
+const clipUrl = "/lacolada-clip.mp4";
+const posterUrl = "/poster.jpg";
 
 const TITLE = "Lavandería LaColada Teruel — Lavandería autoservicio";
 const DESCRIPTION =
@@ -67,7 +67,7 @@ function Page() {
         {/* Hero */}
         <section id="home" className="relative isolate overflow-hidden bg-card">
           <img
-            src={heroAsset.url}
+            src={heroUrl}
             alt={t.hero.imageAlt}
             width={1920}
             height={1088}
@@ -115,7 +115,7 @@ function Page() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.about.p2}</p>
             </div>
             <img
-              src={interior1Asset.url}
+              src={interior1Url}
               alt={t.about.imageAlt}
               width={1200}
               height={912}
@@ -189,8 +189,8 @@ function Page() {
                 <CarouselItem className="sm:basis-1/2 lg:basis-1/3">
                   <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
                     <video
-                      src={clipAsset.url}
-                      poster={posterAsset.url}
+                      src={clipUrl}
+                      poster={posterUrl}
                       controls
                       playsInline
                       preload="metadata"
@@ -202,12 +202,12 @@ function Page() {
                   </figure>
                 </CarouselItem>
                 {[
-                  storefrontAsset.url,
-                  interior1Asset.url,
-                  interior2Asset.url,
-                  interior4Asset.url,
-                  waitingAsset.url,
-                  loungeAsset.url,
+                  storefrontUrl,
+                  interior1Url,
+                  interior2Url,
+                  interior4Url,
+                  waitingUrl,
+                  loungeUrl,
                 ].map((url, i) => (
                   <CarouselItem key={url} className="sm:basis-1/2 lg:basis-1/3">
                     <figure className="overflow-hidden rounded-md border border-border bg-card shadow-card">
