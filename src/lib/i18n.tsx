@@ -47,8 +47,15 @@ type Copy = {
   reasons: string[];
   reviews: { kicker: string; title: string; items: { quote: string; author: string }[]; rating: string };
   location: { kicker: string; title: string; mapTitle: string };
-  contact: { kicker: string; title: string; hoursTitle: string; hoursValue: string; addressTitle: string };
-  footer: { tagline: string; rights: string };
+  contact: {
+    kicker: string;
+    title: string;
+    hoursTitle: string;
+    hoursValue: string;
+    addressTitle: string;
+    emailTitle: string;
+  };
+  footer: { tagline: string; rights: string; legalNotice: string; privacy: string; cookies: string };
   langLabel: string;
 };
 
@@ -99,8 +106,8 @@ export const copy: Record<Lang, Copy> = {
       kg12: "12 kg",
       kg16: "16 kg",
       dryer: "Secadora 18 kg",
-      from: "desde 3 €",
-      note: "El detergente y el suavizante están incluidos.",
+      from: "3 € / 21 min",
+      note: "Cada 7 minutos adicionales de secado, 1 € más. Detergente y suavizante incluidos. Precios con IVA incluido.",
     },
     media: {
       kicker: "Galería",
@@ -128,7 +135,6 @@ export const copy: Record<Lang, Copy> = {
       items: [
         { quote: "Excelente servicio, buenas máquinas y los mejores precios.", author: "Paul" },
         { quote: "El detergente está incluido y las máquinas son fáciles de usar.", author: "Nejc" },
-        { quote: "Lavandería muy limpia y máquinas fiables.", author: "Cliente" },
       ],
     },
     location: {
@@ -142,10 +148,14 @@ export const copy: Record<Lang, Copy> = {
       hoursTitle: "Horario",
       hoursValue: "Abierto todos los días\n8:00 – 22:00",
       addressTitle: "Dirección",
+      emailTitle: "Correo electrónico",
     },
     footer: {
       tagline: `${address.replace("\n", ", ")}, España · Abierto todos los días 8:00 – 22:00`,
       rights: "Todos los derechos reservados.",
+      legalNotice: "Aviso legal",
+      privacy: "Política de privacidad",
+      cookies: "Política de cookies",
     },
     langLabel: "Idioma",
   },
@@ -192,8 +202,8 @@ export const copy: Record<Lang, Copy> = {
       kg12: "12 kg",
       kg16: "16 kg",
       dryer: "18 kg dryer",
-      from: "from €3",
-      note: "Detergent and fabric softener are included.",
+      from: "3 € / 21 min",
+      note: "Each additional 7 minutes of drying costs 1 € more. Detergent and fabric softener included. Prices include VAT.",
     },
     media: {
       kicker: "Gallery",
@@ -216,7 +226,6 @@ export const copy: Record<Lang, Copy> = {
       items: [
         { quote: "Excellent service, good machines and the best prices.", author: "Paul" },
         { quote: "Detergent is included and the machines are easy to use.", author: "Nejc" },
-        { quote: "Very clean laundry and reliable machines.", author: "Customer" },
       ],
     },
     location: {
@@ -230,10 +239,14 @@ export const copy: Record<Lang, Copy> = {
       hoursTitle: "Opening Hours",
       hoursValue: "Open every day\n8:00 – 22:00",
       addressTitle: "Address",
+      emailTitle: "Email",
     },
     footer: {
       tagline: `${address.replace("\n", ", ")}, Spain · Open every day 8:00 – 22:00`,
       rights: "All rights reserved.",
+      legalNotice: "Legal notice",
+      privacy: "Privacy policy",
+      cookies: "Cookie policy",
     },
     langLabel: "Language",
   },
@@ -280,8 +293,8 @@ export const copy: Record<Lang, Copy> = {
       kg12: "12 kg",
       kg16: "16 kg",
       dryer: "Uscător 18 kg",
-      from: "de la 3 €",
-      note: "Detergentul și balsamul de rufe sunt incluse.",
+      from: "3 € / 21 min",
+      note: "Fiecare 7 minute suplimentare de uscare costă 1 € în plus. Detergentul și balsamul sunt incluse. Prețurile includ TVA.",
     },
     media: {
       kicker: "Galerie",
@@ -309,7 +322,6 @@ export const copy: Record<Lang, Copy> = {
       items: [
         { quote: "Servicii excelente, mașini bune și cele mai bune prețuri.", author: "Paul" },
         { quote: "Detergentul este inclus, iar mașinile sunt ușor de folosit.", author: "Nejc" },
-        { quote: "Spălătorie foarte curată și mașini de încredere.", author: "Client" },
       ],
     },
     location: {
@@ -323,10 +335,14 @@ export const copy: Record<Lang, Copy> = {
       hoursTitle: "Program",
       hoursValue: "Deschis în fiecare zi\n8:00 – 22:00",
       addressTitle: "Adresă",
+      emailTitle: "E-mail",
     },
     footer: {
       tagline: `${address.replace("\n", ", ")}, Spania · Deschis în fiecare zi 8:00 – 22:00`,
       rights: "Toate drepturile rezervate.",
+      legalNotice: "Mențiuni legale",
+      privacy: "Politica de confidențialitate",
+      cookies: "Politica de cookie-uri",
     },
     langLabel: "Limbă",
   },
