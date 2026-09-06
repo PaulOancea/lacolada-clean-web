@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 import { DIRECTIONS_URL } from "./Navbar";
 import { useLang } from "@/lib/i18n";
 
