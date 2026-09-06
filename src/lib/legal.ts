@@ -6,7 +6,7 @@ export type LegalDoc = {
   metaTitle: string;
   description: string;
   sections: LegalSection[];
-  disclaimer?: string;
+  disclaimer?: string | undefined;
 };
 
 export const LAST_UPDATED = "6 de septiembre de 2026";
