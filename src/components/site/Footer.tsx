@@ -13,16 +13,16 @@ export function Footer() {
           </p>
         </div>
         <nav aria-label={t.nav.home} className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <a href="#services" className="text-muted-foreground hover:text-primary">
+          <a href="/#services" className="text-muted-foreground hover:text-primary">
             {t.nav.services}
           </a>
-          <a href="#prices" className="text-muted-foreground hover:text-primary">
+          <a href="/#prices" className="text-muted-foreground hover:text-primary">
             {t.nav.prices}
           </a>
-          <a href="#location" className="text-muted-foreground hover:text-primary">
+          <a href="/#location" className="text-muted-foreground hover:text-primary">
             {t.nav.location}
           </a>
-          <a href="#contact" className="text-muted-foreground hover:text-primary">
+          <a href="/#contact" className="text-muted-foreground hover:text-primary">
             {t.nav.contact}
           </a>
           <a
@@ -36,12 +36,24 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-border/70">
-        <div className="container-site py-5">
+        <div className="container-site flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Lavandería LaColada Teruel. {t.footer.rights}
           </p>
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+            <Link to="/aviso-legal" className="text-muted-foreground hover:text-primary">
+              {t.footer.legalNotice}
+            </Link>
+            <Link to="/politica-privacidad" className="text-muted-foreground hover:text-primary">
+              {t.footer.privacy}
+            </Link>
+            <Link to="/politica-cookies" className="text-muted-foreground hover:text-primary">
+              {t.footer.cookies}
+            </Link>
+          </nav>
         </div>
       </div>
+
     </footer>
   );
 }
