@@ -153,11 +153,11 @@ function Page() {
                 <dl className="mt-4 divide-y divide-border">
                   <div className="flex items-baseline justify-between py-3">
                     <dt className="text-sm text-muted-foreground">{t.prices.kg12}</dt>
-                    <dd className="text-base font-semibold text-foreground">€5</dd>
+                    <dd className="text-base font-semibold text-foreground">5 €</dd>
                   </div>
                   <div className="flex items-baseline justify-between py-3">
                     <dt className="text-sm text-muted-foreground">{t.prices.kg16}</dt>
-                    <dd className="text-base font-semibold text-foreground">€7</dd>
+                    <dd className="text-base font-semibold text-foreground">7 €</dd>
                   </div>
                 </dl>
               </div>
@@ -317,7 +317,7 @@ function Page() {
         <section id="contact" className="py-16 sm:py-24">
           <div className="container-site">
             <SectionTitle kicker={t.contact.kicker}>{t.contact.title}</SectionTitle>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-md border border-border bg-card p-6">
                 <h3 className="text-base font-bold text-foreground">{t.contact.hoursTitle}</h3>
                 <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
@@ -333,6 +333,17 @@ function Page() {
                   <br />
                   España
                 </address>
+              </div>
+              <div className="rounded-md border border-border bg-card p-6">
+                <h3 className="text-base font-bold text-foreground">{t.contact.emailTitle}</h3>
+                <p className="mt-3 text-sm leading-relaxed">
+                  <a
+                    href="mailto:lacoladateruel@gmail.com"
+                    className="text-primary underline-offset-4 hover:underline"
+                  >
+                    lacoladateruel@gmail.com
+                  </a>
+                </p>
               </div>
             </div>
           </div>

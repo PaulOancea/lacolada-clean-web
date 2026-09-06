@@ -11,12 +11,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const { t } = useLang();
   const links = [
-    { label: t.nav.home, href: "#home" },
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.prices, href: "#prices" },
-    { label: t.nav.media, href: "#media" },
-    { label: t.nav.location, href: "#location" },
-    { label: t.nav.contact, href: "#contact" },
+    { label: t.nav.home, href: "/#home" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.prices, href: "/#prices" },
+    { label: t.nav.media, href: "/#media" },
+    { label: t.nav.location, href: "/#location" },
+    { label: t.nav.contact, href: "/#contact" },
   ];
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur">
       <div className="container-site flex h-16 items-center justify-between gap-6">
-        <a href="#home" className="flex flex-col leading-tight">
+        <a href="/#home" className="flex flex-col leading-tight">
           <span className="text-base font-bold tracking-tight text-primary">Lavandería LaColada</span>
           <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
             Teruel
